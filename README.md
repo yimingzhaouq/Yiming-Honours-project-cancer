@@ -8,19 +8,50 @@ R-based analysis for exploring and classifying melanocytic lesions using princip
 
 This project combines:
 
-1. *PCA* — Dimensionality reduction and visualization of multi-variable lesion data (9 features).
-2. *Classification tree* — Predicting diagnosis from miR-211 using conditional inference trees.
-3. *Optimal cutoff* — Finding the best miR-211 threshold (Youden index) to classify diagnosis (Absent/Present).
+1. *PCA* — Dimensionality reduction and visualisation of multi-variable lesion data (9 microRNA features), comparing distinct lesion groups.
+2. *Classification tree* — Conditional inference tree predicting diagnosis from miR-211 expression.
+3. *Optimal cutoff* — Youden-index-based threshold for miR-211 to classify diagnosis as Absent or Present.
 
 ---
 
 ## Repository structure
 
-| File | Purpose |
-|------|--------|
+| File / folder | Purpose |
+|---------------|---------|
 | PCA for melanocytic lesions.R | PCA on the Overlap dataset; scree plots, variable contributions, biplots. |
 | CI tree updated.R | Train/validation split, ctree model on miR-211, and OptimalCutpoints for cutoff. |
+| assets/ | Released PCA result figures (4 images). |
 | README.md | This file. |
+
+---
+
+## PCA results for melanocytic lesions
+
+The following four PCA biplots compare distinct lesion groups. Arrows represent microRNA variable loadings (e.g. miR.145); ellipses show 95% confidence regions per group.
+
+> *Note:* These images are *non-exhaustive. Only these four figures are released; all other PCA and analysis outputs remain **confidential*.
+
+*Dysplasia vs Naevus* — PC1 ~84%, PC2 ~10%
+
+![Dysplasia vs Naevus](assets/Rplot_PCA_Dysplasia-Benign-5250ff61-8c2d-4133-8edc-1444598ada73.png)
+
+---
+
+*Mild vs Severe dysplasia* — PC1 ~94%, PC2 ~4.5%
+
+![Mild vs Severe dysplasia](assets/Rplot_PCA-Mild-Severe_dysplasia-0d68e77c-71f2-4527-8e49-b8a63700a610.png)
+
+---
+
+*Melanoma in situ (MIS) vs Naevus* — PC1 ~86%, PC2 ~11%
+
+![MIS vs Naevus](assets/Rplot_PCA_MIS-Benign-cef60dad-c022-4369-b192-0c4710e04cc3.png)
+
+---
+
+*Thin melanoma vs Naevus* — PC1 ~86%, PC2 ~10%
+
+![Thin melanoma vs Naevus](assets/Rplot_PCA_TM-Benign-fc438451-2ffe-4663-94cf-2e319a4cf641.png)
 
 ---
 
@@ -28,11 +59,21 @@ This project combines:
 
 Scripts expect the following objects to be available in the R environment (load your data or .RData before running):
 
-- *Overlap* — For PCA: first column = sample IDs (used as row names), columns 1–9 = numeric features. Optional column Category for grouping in biplots.
+- *Overlap* — For PCA: first column = sample IDs (row names), columns 1–9 = numeric microRNA features. Optional Category column for group colouring in biplots.
 - *TMD* — For the classification tree: must include Diagnosis and miR.211.
-- *TD* — For optimal cutoff: must include miR211 and Diagnosis (will be used as factor with labels "Absent", "Present").
+- *TD* — For optimal cutoff: must include miR211 and Diagnosis (recoded as factor with labels "Absent", "Present").
 
-No data files are included in this repository.
+No data files are included in this repository. The dataset is confidential and cannot be disclosed.
+
+---
+
+## How to run
+
+1. Load your data so that Overlap, TMD, and/or TD exist in the R workspace.
+2. Install the required packages (see [Dependencies](#dependencies-r-packages)).
+3. Run the scripts:
+   - PCA for melanocytic lesions.R — for PCA, scree plots, and biplots.
+   - CI tree updated.R — for the classification tree and optimal miR-211 cutoff.
 
 ---
 
@@ -40,37 +81,28 @@ No data files are included in this repository.
 
 *PCA script:*
 
-- factoextra, FactoMineR — PCA and factor maps
-- corrplot — Correlation/cos² heatmap
-- ggbiplot — Biplots (install via remotes::install_github("vqv/ggbiplot") or devtools::install_github("vqv/ggbiplot"))
+- factoextra, FactoMineR — PCA computation and factor maps
+- corrplot — cos² correlation heatmap
+- ggbiplot — Enhanced biplots (GitHub only: remotes::install_github("vqv/ggbiplot"))
 
 *Classification tree script:*
 
 - party — Conditional inference trees (ctree)
-- OptimalCutpoints — Youden-optimal cutoff for miR-211
+- OptimalCutpoints — Youden-optimal cutoff for a single biomarker
 
-Install with install.packages("package_name") (and GitHub install for ggbiplot as above).
-
----
-
-## How to run
-
-1. Install the required packages (see Dependencies).
-2. Load your data so that Overlap, TMD, and/or TD exist in the workspace.
-3. Run the scripts:
-   - PCA for melanocytic lesions.R for PCA and biplots.
-   - CI tree updated.R for the tree and optimal cutoff (note: it uses setwd() to a Windows path; change or remove as needed for your machine).
+Install CRAN packages with install.packages("package_name").
 
 ---
 
 ## Notes
 
-- *Path in CI tree updated.R:* setwd("R:\STARKLAB-Q4846\...") is machine-specific. Update or remove it for your environment.
-- *Possible bug in PCA script:* Lines 16–17 use pcDysN in fviz_contrib(); if you get an error, replace with pcOver to match the PCA object created in that script.
+- *Machine-specific path in CI tree updated.R:* The setwd("R:\STARKLAB-Q4846\...") line is Windows-specific. Update or remove it before running on another machine.
+- *Possible variable name bug in PCA script:* Lines 16–17 reference pcDysN in fviz_contrib(), which does not exist in the script. Replace with pcOver to match the PCA object created on line 5.
 
 ---
 
 ## Context
 
-- *Melanocytic lesions:* Moles, nevi, melanoma.
-- *miR-211:* MicroRNA used here as a predictive feature and for a single-variable diagnostic cutoff.
+- *Melanocytic lesions:* A spectrum of pigmented skin lesions ranging from benign (common nevi/moles) to malignant (melanoma), including intermediate states such as dysplasia and melanoma in situ (MIS).
+- *miR-211:* A microRNA frequently downregulated in melanoma. This project evaluates its utility as a single-variable diagnostic marker, using both a tree model and an optimal cutoff.
+- *Institution:* The University of Queensland — Stark Lab, Dermatology (Honours 2022).
