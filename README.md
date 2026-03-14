@@ -33,10 +33,10 @@ The following four PCA biplots compare distinct lesion groups. Arrows represent 
 
 All four figures are available in the [assets/](assets/) folder:
 
-- [Dysplasia vs Naevus](assets/Rplot_PCA_Dysplasia-Benign-5250ff61-8c2d-4133-8edc-1444598ada73.png) — PC1 ~84%, PC2 ~10%
-- [Mild vs Severe dysplasia](assets/Rplot_PCA-Mild-Severe_dysplasia-0d68e77c-71f2-4527-8e49-b8a63700a610.png) — PC1 ~94%, PC2 ~4.5%
-- [Melanoma in situ (MIS) vs Naevus](assets/Rplot_PCA_MIS-Benign-cef60dad-c022-4369-b192-0c4710e04cc3.png) — PC1 ~86%, PC2 ~11%
-- [Thin melanoma vs Naevus](assets/Rplot_PCA_TM-Benign-fc438451-2ffe-4663-94cf-2e319a4cf641.png) — PC1 ~86%, PC2 ~10%
+- [Dysplasia vs Naevus](assets/Rplot_PCA_Dysplasia-Benign.png) — PC1 ~84%, PC2 ~10%
+- [Mild vs Severe dysplasia](assets/Rplot_PCA-Mild-Severe dysplasia.png) — PC1 ~94%, PC2 ~4.5%
+- [Melanoma in situ (MIS) vs Naevus](assets/Rplot_PCA_MIS-Benign.png) — PC1 ~86%, PC2 ~11%
+- [Thin melanoma vs Naevus](assets/Rplot_PCA_TM-Benign.png) — PC1 ~86%, PC2 ~10%
 
 ---
 
