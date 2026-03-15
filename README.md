@@ -1,4 +1,4 @@
-# Yiming Honours Project — Cancer (Melanocytic Lesions)
+# Yiming Honours Project — Skin Cancer (Melanocytic Lesions)
 
 R-based analysis for exploring and classifying melanocytic lesions using principal component analysis (PCA) and classification trees, with a focus on *miR-211* as a diagnostic biomarker.
 
@@ -8,7 +8,7 @@ R-based analysis for exploring and classifying melanocytic lesions using princip
 
 This project combines:
 
-1. *PCA* — Dimensionality reduction and visualisation of multi-variable lesion data (9 microRNA features), comparing distinct lesion groups.
+1. *PCA* — Dimensionality reduction and visualisation of multi-variable lesion miRNA expression data (9 microRNA features), comparing distinct lesion groups.
 2. *Classification tree* — Conditional inference tree predicting diagnosis from miR-211 expression.
 3. *Optimal cutoff* — Youden-index-based threshold for miR-211 to classify diagnosis as Absent or Present.
 
