@@ -90,4 +90,4 @@ Install CRAN packages with install.packages("package_name").
 
 - *Melanocytic lesions:* A spectrum of pigmented skin lesions ranging from benign (common nevi/moles) to malignant (melanoma), including intermediate states such as dysplasia and melanoma in situ (MIS).
 - *miR-211:* A microRNA frequently downregulated in melanoma. This project evaluates its utility as a single-variable diagnostic marker, using both a tree model and an optimal cutoff.
-- *Institution:* The University of Queensland — Stark Lab, Dermatology (Honours 2022).
+- *Author and Institution:* The University of Queensland — Yiming Zhao, Stark Lab, Dermatology Research Centre (Honours Year 2022).
