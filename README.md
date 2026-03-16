@@ -1,6 +1,6 @@
 # Part of Honours Project — Skin Cancer (Melanocytic Lesions)
 
-R-based analysis for exploring and classifying melanocytic lesions using principal component analysis (PCA) and classification trees, with a focus on *miR-211* as a diagnostic biomarker.
+R-based analysis for exploring and classifying melanocytic lesions using principal component analysis (PCA) and classification trees, with a focus on *miR-211* as a diagnostic biomarker. 
 
 ---
 
